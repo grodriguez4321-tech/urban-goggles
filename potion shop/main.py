@@ -7,7 +7,6 @@ day3_customers = []
 def customer_name():
     rand_customer_name = random.choice(names) 
     return rand_customer_name
-rand_customer_name = customer_name()
 
 
 
@@ -96,26 +95,36 @@ for customer in day1_customers:
         f"for {customer.order[2]} gp"
 
     )
+
+#for customer in day2_customers:
+	#print(
+	#f"Day 2: {customer.name} wants "
+
+        #f"{customer.order[1]} {customer.order[0].name} "
+
+        #f"for {customer.order[2]} gp"
+
+    #)
     
-for customer in day2_customers:
-	print(
-	f"Day 2: {customer.name} wants "
+#for customer in day3_customers:
+	#print(
+	#f"Day 3: {customer.name} wants "
 
-        f"{customer.order[1]} {customer.order[0].name} "
+       # f"{customer.order[1]} {customer.order[0].name} "
 
-        f"for {customer.order[2]} gp"
+       # f"for {customer.order[2]} gp"
 
-    )
-    
-for customer in day3_customers:
-	print(
-	f"Day 3: {customer.name} wants "
-
-        f"{customer.order[1]} {customer.order[0].name} "
-
-        f"for {customer.order[2]} gp"
-
-    )
+    #)
+profit = 0    
+for customer in day1_customers:
+	if customer.order[2] <= customer.gp:
+		print(f"{customer.name} has {customer.gp} : can purchase")
+		customer.gp -= customer.order[2]
+		profit += customer.order[2]
+		print(f"{customer.name} made their purchase and now has {customer.gp}")
+	else:
+		print(f"{customer.name} has insufficient funds: {customer.gp}")
+print (f"Day complete: \n You have made {profit} today")
 
 #day_1_orders()
 #day_2_orders()
