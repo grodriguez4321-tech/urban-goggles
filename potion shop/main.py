@@ -7,6 +7,12 @@ day3_customers = []
 def customer_name():
     rand_customer_name = random.choice(names) 
     return rand_customer_name
+class Shop:
+    def __init__(self, name):
+        self.name = name
+        self.potions = potions
+        self.profit = 0
+Potion_Shop = Shop('Potion Shop')
 
 
 
@@ -96,36 +102,56 @@ for customer in day1_customers:
 
     )
 
-#for customer in day2_customers:
-	#print(
-	#f"Day 2: {customer.name} wants "
+for customer in day2_customers:
+	print(
+	f"Day 2: {customer.name} wants "
 
-        #f"{customer.order[1]} {customer.order[0].name} "
+        f"{customer.order[1]} {customer.order[0].name} "
 
-        #f"for {customer.order[2]} gp"
+        f"for {customer.order[2]} gp"
 
-    #)
+    )
     
-#for customer in day3_customers:
-	#print(
-	#f"Day 3: {customer.name} wants "
+for customer in day3_customers:
+	print(
+	f"Day 3: {customer.name} wants "
 
-       # f"{customer.order[1]} {customer.order[0].name} "
+        f"{customer.order[1]} {customer.order[0].name} "
 
-       # f"for {customer.order[2]} gp"
+        f"for {customer.order[2]} gp"
 
-    #)
-profit = 0    
+    )
+day1_profit = 0
+day2_profit = 0
+day3_profit = 0
+total_profit = 0    
 for customer in day1_customers:
 	if customer.order[2] <= customer.gp:
 		print(f"{customer.name} has {customer.gp} : can purchase")
 		customer.gp -= customer.order[2]
-		profit += customer.order[2]
+		day1_profit += customer.order[2]
 		print(f"{customer.name} made their purchase and now has {customer.gp}")
 	else:
 		print(f"{customer.name} has insufficient funds: {customer.gp}")
-print (f"Day complete: \n You have made {profit} today")
+print (f"\nDay 1 complete \nDay 1 profit: {day1_profit}")
+for customer in day2_customers:
+	if customer.order[2] <= customer.gp:
+		print(f"{customer.name} has {customer.gp} : can purchase")
+		customer.gp -= customer.order[2]
+		day2_profit += customer.order[2]
+		print(f"{customer.name} made their purchase and now has {customer.gp}")
+	else:
+		print(f"{customer.name} has insufficient funds: {customer.gp}")
+print (f"\nDay 2 complete \nDay 2 profit: {day2_profit}")
 
-#day_1_orders()
-#day_2_orders()
-#day_3_orders()
+for customer in day3_customers:
+	if customer.order[2] <= customer.gp:
+		print(f"{customer.name} has {customer.gp} : can purchase")
+		customer.gp -= customer.order[2]
+		day3_profit += customer.order[2]
+		print(f"{customer.name} made their purchase and now has {customer.gp}")
+	else:
+		print(f"{customer.name} has insufficient funds: {customer.gp}")
+print (f"\nDay 3 complete \nDay 3 profit: {day3_profit}")
+total_profit = day1_profit + day2_profit + day3_profit
+print(f"Total profit: {total_profit} \nThank you for shopping at the potion shop!")
