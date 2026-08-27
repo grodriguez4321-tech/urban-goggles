@@ -1,7 +1,7 @@
 
-
+import shop_pots
 import random
-
+shop_pots.potions
 
 names = ['Mira', 'Evelynn', 'Clark', 'Haedin', 'Yuna']
 day1_customers = []
@@ -40,7 +40,7 @@ def customer_gp_held():
     return rand_customer_gp
 
 def customer_order_details():
-    customer_desired_potion = random.choice(potions)
+    customer_desired_potion = random.choice(shop_pots.potions)
     desired_quantity = random.randint(1,3)
     price = desired_quantity * customer_desired_potion.price
     customer_order = [customer_desired_potion, desired_quantity, price]
@@ -89,15 +89,3 @@ def show_day3_customers():
         f"for {customer.order[2]} gp"
 
         )
-if int(input("Press 1 to see Day 1 customers: ")) == 1:
-    show_day1_customers()
-else:
-    print("You have chosen not to see Day 1 customers")
-if int(input("Press 2 to see Day 2 customers: ")) == 2:
-    show_day2_customers()
-else:
-    print("You have chosen not to see Day 2 customers")
-if int(input("Press 3 to see Day 3 customers: ")) == 3:
-    show_day3_customers()
-else:
-    print("You have chosen not to see Day 3 customers")
