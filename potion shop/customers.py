@@ -1,15 +1,13 @@
-
 import shop_pots
 import random
-shop_pots.potions
+from shop_pots import potion_shop
 
 names = ['Mira', 'Evelynn', 'Clark', 'Haedin', 'Yuna']
 day1_customers = []
 day2_customers = []
 day3_customers = []
 def customer_name():
-    rand_customer_name = random.choice(names) 
-    return rand_customer_name
+    return random.choice(names)
 
 class Customer:
     def __init__(self):
@@ -34,16 +32,23 @@ def create_customer():
         all_customers.append(rand_customer)
     return all_customers
 
+	
+	
 customer_gp = [100, 150, 200, 250]
 def customer_gp_held():
-    rand_customer_gp = random.choice(customer_gp)
-    return rand_customer_gp
+    return random.choice(customer_gp)
 
 def customer_order_details():
-    customer_desired_potion = random.choice(shop_pots.potions)
-    desired_quantity = random.randint(1,3)
+    customer_desired_potion = random.choice(shop_pots.potion_shop.potions)
+    desired_quantity = random.randint(1, 3)
     price = desired_quantity * customer_desired_potion.price
-    customer_order = [customer_desired_potion, desired_quantity, price]
+
+    customer_order = [
+        customer_desired_potion,
+        desired_quantity,
+        price
+    ]
+
     return customer_order
 
 all_customers = create_customer()
@@ -89,3 +94,12 @@ def show_day3_customers():
         f"for {customer.order[2]} gp"
 
         )
+  
+served_customers = []
+def serve_next():
+	removed_customer = all_customers.pop(0)
+	served_customers.append(removed_customer)
+	print(removed_customer)
+	return removed_customer, served_customers
+serve_next()
+
