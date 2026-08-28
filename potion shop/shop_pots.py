@@ -36,7 +36,7 @@ class Potion:
 		        f"In stock: {self.quant}\n")
 
 	def __repr__(self):
-		return (f"Potion(name={self.name!r}, "
+		return (f"Potion(name={self.name!r},"
 		        f"price={self.price}, quant={self.quant})")
 
 
@@ -49,8 +49,6 @@ def make_potions():
 	return potions
 
 
-shop_potions = make_potions()
-
 
 class Shop:
 
@@ -61,14 +59,17 @@ class Shop:
 
 	def __str__(self):
 		return (f"Name: {self.name} \n"
-		        f"Potions: {sampled_potion_names} \n"
+		        f"Potions: {sampled_potion_names}: \n"
 		        f"Profit: {self.profit} \n")
 
 
 potion_shop = Shop("Potion Shop")
 def show_potions():
-	for potion in shop_potions:
-		print(str(potion))
+	for potion in potion_shop.potions:
+		print(potion)
+	
+	
+
 		
 show_potions()
 
